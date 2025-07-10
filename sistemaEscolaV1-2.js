@@ -9,10 +9,10 @@ do{
   '3 - Cadastrar curso\n' +
     '4 - Excluir curso\n' +
     '5 - Registro\n' +
-    '6 - Saindo do sistema\n\n' +
+    '6 - Matricular aluno em curso\n' +
+    '7 - Saindo do sistema\n\n' +
    'Escolha uma opção\n');
    
-
 switch(opcao){
     case '1':
         let nomeAluno = prompt('digite o nome do aluno: ');
@@ -27,7 +27,6 @@ switch(opcao){
      case '2':
        let excluirAluno = prompt('Digite o nome do aluno: ');
        let posicao = alunos.indexOf(excluirAluno);
-
        if(posicao !== -1){
        alunos.splice(posicao, 1);  
 
@@ -36,7 +35,7 @@ switch(opcao){
        
         console.log('Aluno não encontrado.')
        }
-
+    
        break;
 
     case '3':
@@ -53,8 +52,8 @@ switch(opcao){
        let excluirCurso = prompt('Digite o nome do curso: ');
        let posicao2 = cursos.indexOf(excluirCurso);
 
-       if(posicao2 !== -1){
-       cursos.splice(posicao2, 1);  
+       if(posicao !== -1){
+       cursos.splice(posicao, 1);  
 
        console.log(curso);
        }else{
@@ -77,25 +76,27 @@ let info2 = 'Cursos Cadastrados: \n';
     info2 += 'Nenhum curso cadastrado. \n';
 }
 let info = 'Alunos Cadastrados: \n';
-    if (alunos.length>0){
+if (alunos.length>0){
     for (let i = 0; i < alunos.length; i++ ){
-    info += '-' + alunos[i] + '\n';
+        let curso;
+        if (alunos[1].curso) {
+            curso = aluno[1].curso; 
+
+        }else{
+           curso = 'Não matriculado';
+        }
+         console.log('-' + alunos[i].nomeAluno + '(Curso: ' + curso) 
     }
-    console.log(info);
+    
 } else{
     info += 'Nenhum aluno cadastrado. \n';
 }
 break;
 case '6':
-    console.log('Saindo do sistema...');
-    break;
-
- default:
-
- console.log('Número não indentificado.');
-   
     
-}
-}while
-(opcao!=6);
+ default:
+ 
+    
+}}
+while(opcao!==6);
 
