@@ -1,4 +1,12 @@
 let prompt = require('prompt-sync')();
+let senha = '1234';
+let login = prompt('Digite a senha: ');
+
+if (login!==senha){
+
+    console.log('Senha incorreta')
+}else{
+
 let cursos = [];
 let alunos = [];
 let opcao
@@ -55,7 +63,7 @@ switch(opcao){
        if(posicao !== -1){
        cursos.splice(posicao, 1);  
 
-       console.log(curso);
+       console.log(cursos);
        }else{
        
         console.log('Curso não encontrado.')
@@ -70,7 +78,7 @@ let info2 = 'Cursos Cadastrados: \n';
     for (let i = 0; i < cursos.length; i++ ){
     info2 += '-' + cursos[i] + '\n';
     
-     console.log(info2);
+     console.log(info2)
     }
 } else{
     info2 += 'Nenhum curso cadastrado. \n';
@@ -78,7 +86,7 @@ let info2 = 'Cursos Cadastrados: \n';
 let info = 'Alunos Cadastrados: \n';
 if (alunos.length>0){
     for (let i = 0; i < alunos.length; i++ ){
-        let curso;
+        let curso
         if (alunos[1].curso) {
             curso = aluno[1].curso; 
 
@@ -93,10 +101,46 @@ if (alunos.length>0){
 }
 break;
 case '6':
-    
- default:
- 
-    
-}}
-while(opcao!==6);
+    if(alunos.length ===0 || cursos.length===0){
 
+        console.log('É necessário ter aluno e curso cadastrados para realizar a matrícula.');
+    }
+    let nomeMatricula = prompt('Digite o nome do aluno para matrícula: ');
+    let aluno = null;
+    for (let i = 0; i<alunos.length; i++){
+
+        if (alunos[i].nome === nomeMatricula){
+
+            aluno = alunos[i];
+            
+        }
+    }
+    if (!aluno) {
+
+        console.log('Aluno não encontrado.');
+        
+    }
+    
+ console.log('Cursos disponíveis: ');
+for (let i = 0; i < cursos.length; i++) {
+
+    console.log((i + 1) + ' - ' + cursos[i]);
+}
+
+ let cursoIndex = parseInt(prompt('Escolha o número do curso: '));
+ if (cursoIndex >= 0 && cursoIndex < cursos.length) {
+    aluno.curso = curso[cursoIndex];
+    
+    console.log('Aluno: ' + aluno.nome + 'matriculado no curso: ' + curso);
+ }else{
+
+    console.log('Curso inválido.');
+    break;
+ }
+case '7' :
+ console.log('Saindo do sistema...');
+    break;
+
+}}
+while(opcao!==7);
+}
