@@ -146,6 +146,7 @@ if (tentativasenha === 3) {
         console.log("Saindo do sistema...");
         break;
       default:
+        console.log("Número não indentificado.");
     }
   } while (opcao !== "7");
 }
