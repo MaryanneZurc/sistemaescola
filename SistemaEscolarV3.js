@@ -98,22 +98,24 @@ if (tentativasenha === 3) {
       );
     }
     let nomeMatricula = prompt("Digite o nome do aluno para matrícula: ");
-    let aluno = null;
+    let alunoEncontrado = null;
     for (let i = 0; i < alunos.length; i++) {
       if (alunos[i].nome === nomeMatricula) {
-        aluno = alunos[i];
+        alunoEncontrado = alunos[i];
       }
     }
-    if (!aluno) {
+    if (!alunoEncontrado) {
       console.log("Aluno não encontrado.");
     }
 
     console.log("Cursos disponíveis: ");
+
     for (let i = 0; i < cursos.length; i++) {
       console.log(i + 1 + " - " + cursos[i]);
     }
 
-    let cursoIndex = parseInt(prompt("Escolha o número do curso: "));
+    let cursoEscolhidoIndex =
+      parseInt(prompt("Escolha o número do curso: ")) - 1;
     if (cursoIndex >= 0 && cursoIndex < cursos.length) {
       aluno.curso = curso[cursoIndex];
 
