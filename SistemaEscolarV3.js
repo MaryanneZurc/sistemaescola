@@ -96,7 +96,7 @@ if (tentativasenha === 3) {
       console.log(
         "É necessário ter aluno e curso cadastrados para realizar a matrícula."
       );
-    }
+    }else{
     let nomeMatricula = prompt("Digite o nome do aluno para matrícula: ");
     let alunoEncontrado = null;
     for (let i = 0; i < alunos.length; i++) {
@@ -123,6 +123,7 @@ if (tentativasenha === 3) {
     } else {
       console.log("Curso inválido.");
     }
+  }
   }
   do {
     opcao = prompt(
